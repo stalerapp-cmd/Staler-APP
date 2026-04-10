@@ -1,0 +1,40 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background: #f9fafb;
+}
+
+
+.nav-link {
+  @apply text-gray-700 hover:text-green-600 px-3 py-2 rounded-md text-sm font-medium transition;
+}
+
+.dropdown-item {
+  @apply block w-full text-left px-4 py-2 text-gray-700 hover:bg-gray-100 transition;
+}
+
+.mobile-item {
+  @apply block px-3 py-2 text-gray-700 hover:bg-gray-100 rounded-md transition;
+}
+
+@keyframes fade-in {
+  from { opacity: 0; transform: translateY(-5px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fade-in {
+  animation: fade-in 0.2s ease-out;
+}

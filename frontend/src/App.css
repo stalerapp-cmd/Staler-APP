@@ -1,0 +1,241 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+/* Google Translate Styling */
+#google_translate_element {
+  background: white;
+  padding: 8px 12px;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+#google_translate_element select {
+  border: 1px solid #e5e7eb;
+  padding: 6px 12px;
+  border-radius: 8px;
+  font-size: 14px;
+  background: white;
+  cursor: pointer;
+}
+
+#google_translate_element select:focus {
+  outline: none;
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+/* إخفاء شريط Google المزعج */
+.goog-te-banner-frame {
+  display: none !important;
+}
+
+body {
+  top: 0 !important;
+}
+
+.skiptranslate {
+  display: none !important;
+}
+
+/* 
+  ═══════════════════════════════════════════════════════════════
+  🌍 Google Translate Styling for Navbar
+  ═══════════════════════════════════════════════════════════════
+  
+  أضف هذا الكود في ملف: src/index.css
+*/
+
+/* ────────────────────────────────────────────────────────────── */
+/* Desktop Navbar Widget */
+/* ────────────────────────────────────────────────────────────── */
+
+.google-translate-navbar {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.google-translate-navbar .goog-te-gadget {
+  font-family: inherit !important;
+  display: flex;
+  align-items: center;
+}
+
+.google-translate-navbar .goog-te-gadget-simple {
+  background: white !important;
+  border: 1px solid #e5e7eb !important;
+  padding: 6px 12px !important;
+  border-radius: 8px !important;
+  font-size: 14px !important;
+  transition: all 0.2s ease !important;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05) !important;
+}
+
+.google-translate-navbar .goog-te-gadget-simple:hover {
+  border-color: #3b82f6 !important;
+  box-shadow: 0 2px 4px rgba(59, 130, 246, 0.1) !important;
+}
+
+.google-translate-navbar .goog-te-gadget-simple:focus {
+  outline: none !important;
+  border-color: #3b82f6 !important;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1) !important;
+}
+
+/* إضافة أيقونة 🌍 قبل الترجمة */
+.google-translate-navbar .goog-te-gadget-simple::before {
+  content: "🌍";
+  margin-right: 6px;
+  font-size: 16px;
+}
+
+/* ────────────────────────────────────────────────────────────── */
+/* Mobile Widget */
+/* ────────────────────────────────────────────────────────────── */
+
+.google-translate-mobile {
+  display: inline-flex;
+  align-items: center;
+}
+
+.google-translate-mobile .goog-te-gadget-simple {
+  background: white !important;
+  border: 1px solid #e5e7eb !important;
+  padding: 4px 8px !important;
+  border-radius: 6px !important;
+  font-size: 12px !important;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05) !important;
+}
+
+.google-translate-mobile .goog-te-gadget-simple::before {
+  content: "🌍";
+  margin-right: 4px;
+  font-size: 14px;
+}
+
+/* ────────────────────────────────────────────────────────────── */
+/* إخفاء العناصر المزعجة */
+/* ────────────────────────────────────────────────────────────── */
+
+/* إخفاء البنر العلوي المزعج */
+.goog-te-banner-frame {
+  display: none !important;
+}
+
+/* منع الصفحة من النزول بسبب البنر */
+body {
+  top: 0 !important;
+}
+
+/* إخفاء "Powered by" */
+.goog-te-gadget-simple .goog-te-menu-value span:first-child {
+  display: none !important;
+}
+
+/* إخفاء أيقونة Google الصغيرة */
+.goog-logo-link {
+  display: none !important;
+}
+
+.goog-te-gadget img {
+  display: none !important;
+}
+
+/* إخفاء نص "Select Language" */
+.goog-te-gadget-simple .goog-te-menu-value span {
+  color: #374151 !important;
+}
+
+/* ────────────────────────────────────────────────────────────── */
+/* تنسيق القائمة المنسدلة */
+/* ────────────────────────────────────────────────────────────── */
+
+.goog-te-menu-frame {
+  border-radius: 8px !important;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1) !important;
+}
+
+/* ────────────────────────────────────────────────────────────── */
+/* Responsive للموبايل */
+/* ────────────────────────────────────────────────────────────── */
+
+@media (max-width: 768px) {
+  .google-translate-navbar {
+    display: none;
+  }
+  
+  .google-translate-mobile {
+    display: inline-flex;
+  }
+}
+
+@media (min-width: 769px) {
+  .google-translate-mobile {
+    display: none;
+  }
+  
+  .google-translate-navbar {
+    display: inline-flex;
+  }
+}
+
+/* ────────────────────────────────────────────────────────────── */
+/* تأثيرات إضافية (اختياري) */
+/* ────────────────────────────────────────────────────────────── */
+
+/* تأثير Fade In عند التحميل */
+.google-translate-navbar,
+.google-translate-mobile {
+  animation: fadeIn 0.3s ease-in;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* تنسيق السهم في القائمة */
+.goog-te-gadget-simple .goog-te-menu-value span:last-child {
+  border-left: 1px solid #e5e7eb !important;
+  padding-left: 8px !important;
+  margin-left: 8px !important;
+}
