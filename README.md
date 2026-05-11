@@ -120,8 +120,8 @@ Once everything is installed and configured, all services are managed through th
 ```bash
 chmod +x start_all.sh stop_all.sh status.sh   # first time only
 
-./start_all.sh   # start Nginx, Node backend, LibEuFin, Taler Exchange
-./stop_all.sh    # stop all services in the correct order
+./start-all.sh   # start Nginx, Node backend, LibEuFin, Taler Exchange
+./stop-all.sh    # stop all services in the correct order
 ./status.sh      # check which services are running and on which ports
 ```
 
