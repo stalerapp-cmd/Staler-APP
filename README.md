@@ -6,9 +6,8 @@ A secure, bilingual (Arabic & English) digital payment platform built for the Pa
 **Bank WebUI:** [http://s-taler.duckdns.org/bank/webui/#/](http://s-taler.duckdns.org/bank/webui/#/)
 
 ---
-## <img width="962" height="1184" alt="aws2 drawio (1)" src="https://github.com/user-attachments/assets/094854fd-b9dd-46eb-8a6d-de05c7cbaeb8" />
-<img width="962" height="1184" alt="aws2 drawio (1)" src="https://github.com/user-attachments/assets/dc903021-ff1e-4941-9a62-cd1c8b58e612" />
-<img width="962" height="1184" alt="aws2 drawio (1)" src="https://github.com/user-attachments/assets/9a0a1f6a-5921-4921-bb91-fbc0b2077878" />
+
+
  Demo Video
 
 [![S-Taler Demo](https://img.youtube.com/vi/6_f7TY62vM0/maxresdefault.jpg)](https://youtu.be/6_f7TY62vM0)
@@ -34,14 +33,7 @@ A secure, bilingual (Arabic & English) digital payment platform built for the Pa
 
 ## Architecture
 
-<!--
-  To embed the architecture diagram: open this README on github.com → click Edit
-  → drag the architecture image (PNG / JPG / SVG) into the editor.
-  GitHub uploads it and inserts the markdown image link automatically,
-  replacing the line below.
--->
-
-![S-Taler AWS Architecture](https://github.com/stalerapp-cmd/Staler-APP/assets/REPLACE_AFTER_UPLOAD)
+<img width="962" height="1184" alt="aws2 drawio (1)" src="https://github.com/user-attachments/assets/dc903021-ff1e-4941-9a62-cd1c8b58e612" />
 
 ---
 
