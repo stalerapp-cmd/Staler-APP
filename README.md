@@ -215,10 +215,8 @@ The marketplace can be **accessed by anyone**; users can browse all stores and l
 
 From the account settings page, the user can update their profile picture, password, email address, and username. An email alert will be sent whenever there are any changes to the security-sensitive information.
 
----
-
 The user can communicate directly with any other user within the application.
-
+---
 # User Roles
 
 ## Regular User
