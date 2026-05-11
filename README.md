@@ -12,7 +12,7 @@ A secure, bilingual (Arabic & English) digital payment platform built for the Pa
 
 [![S-Taler Demo](https://img.youtube.com/vi/6_f7TY62vM0/maxresdefault.jpg)](https://youtu.be/6_f7TY62vM0)
 
-> 🎬 **[Watch the full demo on YouTube](https://youtu.be/6_f7TY62vM0)**
+>  **[Watch the full demo on YouTube](https://youtu.be/6_f7TY62vM0)**
 
 ##  Tools & Technologies
 
@@ -129,7 +129,7 @@ The frontend is served as a static build by Nginx after running `npm run build` 
 
 ---
 
-## 📖 How to Use the Project
+## How to Use the Project
 
 This section walks through the platform exactly as shown in the demo video.
 
@@ -198,7 +198,7 @@ After verification, click **Login**, enter your email and password, and you land
 2. Enter the amount.
 3. Confirm. The amount moves from your S-Taler wallet back to your LibEuFin bank account.
 
-### 🏪 Using the Merchant Role
+###  Using the Merchant Role
 
 A user registered as a **Merchant** can:
 - **Create a store** — give it a name, logo, and description.
@@ -206,7 +206,7 @@ A user registered as a **Merchant** can:
 - **Manage orders** — view incoming orders, mark them as shipped, communicate with buyers through in-app chat.
 - **Generate QR codes** — create QR codes for in-person payment.
 
-### 💵 Using the Exchange Role
+###  Using the Exchange Role
 
 The **Exchange** role is the key feature for onboarding **unbanked users** into the digital economy.
 
