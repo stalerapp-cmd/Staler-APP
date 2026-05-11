@@ -266,6 +266,8 @@ Controls the underlying LibEuFin bank — creating new bank accounts, changing p
 ## Bank Exchange (LibEuFin)
 
 Deals with financial transactions between wallets and banks on the banking level — wallet transactions, interbank transactions, and complete transaction history.
+
+
 ---
 
 ## Team
