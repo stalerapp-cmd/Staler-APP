@@ -8,13 +8,13 @@ A secure, bilingual (Arabic & English) digital payment platform built for the Pa
 ---
 
 
- Demo Video
+## Demo Video
 
 [![S-Taler Demo](https://img.youtube.com/vi/6_f7TY62vM0/maxresdefault.jpg)](https://youtu.be/6_f7TY62vM0)
 
 >  **[Watch the full demo on YouTube](https://youtu.be/6_f7TY62vM0)**
 
-##  Tools & Technologies
+## Tools & Technologies
 
 | Layer | Technology |
 |---|---|
@@ -39,21 +39,21 @@ A secure, bilingual (Arabic & English) digital payment platform built for the Pa
 
 ## How to Run the Project
 
->  **S-Taler is not a typical `git clone && npm install && npm start` project.**
+>  **S-Taler is not your usual `git clone && npm install && npm start` project.**
 >
-> The full stack depends on system-level services that **cannot be installed locally** in a simple way:
+> The stack requires system-level services that **cannot be simply installed locally**:
 >
-> - **LibEuFin Bank** — a Java service from GNU Taler that requires OpenJDK 21, custom `.deb` packages, a dedicated PostgreSQL database, dedicated system users (`libeufin-bank`), and a specific `bank.conf` file. It cannot be installed via `npm` or `pip`.
-> - **Taler Exchange** — similar constraints, plus deep integration with the bank.
-> - **Supabase credentials** — the `.env` file with API keys and URLs is **not** committed to the repository.
+> - **LibEuFin Bank** — a Java service provided by GNU Taler, which needs OpenJDK 21, `.deb`-specific builds, a dedicated database, system users (`libeufin-bank`), and its `bank.conf`. It cannot be installed using `npm` or `pip`.
+> - **Taler Exchange** — similarly, also deeply integrated with the bank.
+> - **Supabase Credentials** — the `.env` file containing all API keys and URLs is **not** included in the repo.
 >
-> **The recommended way to run and evaluate this project is the live deployment:**
+> Therefore, **the best way to try out this project is by running the live app:**
 >
 > **[http://s-taler.duckdns.org](http://s-taler.duckdns.org)**
 >
-> You can register a free account and explore the full platform immediately. The merchant marketplace is also publicly visible without registration.
+> Create your free account and test the complete system at once! The merchant marketplace is accessible publicly without the need for registration.
 
-The steps below describe what a developer would do to reproduce the deployment from scratch on their own Linux server.
+Below, one can see a brief guide that would show how a developer could replicate the deployment process themselves on a Linux machine.
 
 ### 1. Clone the repository
 
@@ -98,31 +98,63 @@ cd backend
 cp .env.example .env
 ```
 
-Required keys in `backend/.env`:
+Required keys in `backend/.env` (see `backend/.env.example` for the full list):
 
 ```env
+# Server
 PORT=5000
-JWT_SECRET=<long random string>
-SUPABASE_URL=https://<project-ref>.supabase.co
-SUPABASE_ANON_KEY=<anon key>
-SUPABASE_SERVICE_ROLE_KEY=<service role key>
-EMAIL_USER=<gmail address>
-EMAIL_PASS=<gmail app password>
-BANK_BASE_URL=http://localhost:8080
+NODE_ENV=development
+API_URL=http://localhost:5000
+FRONTEND_URL=http://localhost
+
+# Supabase
+SUPABASE_URL=<your supabase url>
+SUPABASE_SECRET_KEY=<your supabase secret key>
+SUPABASE_ANON_KEY=<your supabase anon key>
+
+# JWT
+JWT_SECRET=<long random string, min 32 chars>
+JWT_EXPIRES_IN=24h
+JWT_REFRESH_EXPIRES_IN=7d
+
+# LibEuFin Bank
+LIBEUFIN_BANK_URL=http://localhost:8080
+BANK_ADMIN_USERNAME=admin
+BANK_ADMIN_PASSWORD=<bank admin password>
+BANK_EXCHANGE_USERNAME=exchange
+BANK_EXCHANGE_PASSWORD=<exchange password>
+
+# Taler Exchange
+TALER_EXCHANGE_URL=<your exchange url>
+TALER_CURRENCY=PS
+
+# Transaction Limits
+MAX_DEPOSIT=10000
+MAX_WITHDRAWAL=10000
+ALLOW_OVERDRAFT=false
+
+# Email (Gmail SMTP)
+EMAIL_USER=<your gmail address>
+EMAIL_PASSWORD=<gmail app password>
+
+# Encryption
+ENCRYPTION_KEY=<32-character encryption key>
+MESSAGE_ENCRYPTION_KEY=<message encryption key>
 ```
 
-The Supabase project credentials are not in the repo for security reasons.
+The Supabase credentials and bank passwords are not in the repo for security reasons.
 
 ### 5. Start, stop, and monitor the services
 
 Once everything is installed and configured, all services are managed through three bash scripts at the project root:
 
 ```bash
-chmod +x start_all.sh stop_all.sh status.sh   # first time only
+chmod +x start-all.sh stop-all.sh status.sh restart-all.sh   # first time only
 
-./start-all.sh   # start Nginx, Node backend, LibEuFin, Taler Exchange
-./stop-all.sh    # stop all services in the correct order
-./status.sh      # check which services are running and on which ports
+./start-all.sh    # start Nginx, Node backend, LibEuFin, Taler Exchange
+./stop-all.sh     # stop all services in the correct order
+./restart-all.sh  # restart everything (useful after config changes)
+./status.sh       # check which services are running and on which ports
 ```
 
 The frontend is served as a static build by Nginx after running `npm run build` inside `frontend/`.
@@ -133,72 +165,72 @@ The frontend is served as a static build by Nginx after running `npm run build` 
 
 This section walks through the platform exactly as shown in the demo video.
 
-### Step 1 — Register an Account
+### Step 1 - Registering
 
-1. Open [http://s-taler.duckdns.org](http://s-taler.duckdns.org).
-2. Click **Register**.
-3. Fill in your full name, email, password (≥ 8 characters), and confirm password.
-4. Click **Create Account**.
+1. Visit the website at [http://s-taler.duckdns.org](http://s-taler.duckdns.org).
+2. Tap on **Register**.
+3. Provide your full name, email address, password (at least 8 characters long), and retype your password.
+4. Tap on **Create Account**.
 
-### Step 2 — Verify Your Email
+### Step 2 – Verifying your Email Address
 
-1. Check your inbox for an email from S-Taler with a **6-digit verification code** (valid for 15 minutes).
-2. Enter the code on the verification screen.
-3. Once verified, a digital wallet is automatically created for you with a `0.00 PS` balance and a unique `wallet_id`.
+1. Go through your email and retrieve an email from S-Taler with **6-digit code** (valid only for 15 minutes).
+2. Enter the code in the designated area.
+3. After successful verification, an online wallet is instantly set up with a balance of `0.00 PS` and your own `wallet_id`.
 
-### Step 3 — Log In
+### Step 3 – Logging in
 
-After verification, click **Login**, enter your email and password, and you land on the **Dashboard** — which shows your wallet balance, recent transactions, and quick actions: **Send**, **Receive**, **Scan QR**, **Marketplace**.
+Once your account gets successfully verified, tap **Login**, enter your email address and password, and access the **Dashboard** where you'll see your wallet balance, recent transactions, and other quick options such as **Send**, **Receive**, **Scan QR Code** and **Marketplace**.
 
-### Step 4 — Link Your Bank Account
+### Step 4 – Linking a Bank Account
 
-1. From the dashboard, click **Bank → Connect a Bank Account**.
-2. You are redirected to the LibEuFin Bank WebUI.
-3. Create a new bank account (or log in to an existing one).
-4. Return to S-Taler — your bank account is now linked.
+1. Navigate to the dashboard, and click on **Bank → Connect a Bank Account**.
+2. The webpage redirects you to the LibEuFin Bank WebUI.
+3. Set up a new bank account (or login into an existing account).
+4. Go back to S-Taler website.
 
 ### Step 5 — Deposit (Bank → Wallet)
 
 1. Go to **Wallet → Deposit**.
-2. Enter the amount in PS.
-3. Confirm. The amount is transferred from your LibEuFin bank account into your S-Taler wallet, and the balance updates instantly.
+2. Specify the sum in PS.
+3. Confirm the transaction; the sum will be transferred from your LibEuFin bank account to your S-Taler wallet and credited instantly.
 
-### Step 6 — Browse the Marketplace & Buy a Product
+### Step 6 — Browsing the Marketplace and Buying Products
 
-1. Click **Marketplace** in the top navigation (this is **publicly accessible** without logging in).
-2. Browse merchant stores and products.
-3. Click a product → **Add to Cart**.
-4. Open the cart and click **Checkout**.
-5. The product price is deducted from your wallet, and the order is sent to the merchant.
-6. For digital products, you get a download link immediately.
+1. Navigate to **Marketplace** on the website (this section can be accessed **without logging in**).
+2. Look through the various merchant stores and their offerings.
+3. Select any product → **Add to Cart**.
+4. Go to cart and click **Proceed**.
+5. Pay for the product using funds from your wallet; after which, your order will be sent to the merchant.
+6. In case of a digital product, you will receive the download link instantly.
 
-### Step 7 — Make a QR Payment
+### Step 7 – Do a QR Payment
 
-**As the payer (customer):**
-1. Click **Scan QR**.
-2. Allow camera access.
-3. Point the camera at the merchant's QR code.
-4. Confirm the amount and pay.
+**As the payer (the customer):**
+1. Tap on **Scan QR**.
+2. Grant permission to use the camera.
+3. Scan the QR code provided by the merchant.
+4. Pay.
 
-**As the receiver (merchant):**
-1. Open the merchant dashboard → **Generate QR**.
-2. Enter the amount to charge.
-3. Show the generated QR code to the customer.
+**As the receiver (the merchant):**
+1. Go to the merchant's dashboard → **Generate QR**.
+2. Input the amount you want to charge.
+3. Present the QR code to the customer.
 
-### Step 8 — Send Money to Another User (Wallet-to-Wallet)
+### Step 8 – Transfer Money to another person's Wallet (wallet to wallet)
 
 1. Click **Send Money**.
-2. Enter the recipient's wallet ID or email.
-3. Enter the amount and an optional note.
-4. Click **Send**. The transfer is instant.
+2. Input the ID or email address of the person.
+3. Input the amount and add a note (optional).
+4. Tap **Send**. The transfer happens immediately.
 
-### Step 9 — Withdraw (Wallet → Bank)
+### Step 9 – Withdraw Funds (Wallet → Bank)
 
-1. Go to **Wallet → Withdraw**.
-2. Enter the amount.
-3. Confirm. The amount moves from your S-Taler wallet back to your LibEuFin bank account.
+1. Select **Wallet → Withdraw**.
+2. Input the amount.
+3. Click Confirm. This will withdraw the funds from your S-Taler wallet back to your LibEuFin bank account.
 
-###  Using the Merchant Role
+### Using the Merchant Role
 
 A user registered as a **Merchant** can:
 - **Create a store** — give it a name, logo, and description.
@@ -206,7 +238,7 @@ A user registered as a **Merchant** can:
 - **Manage orders** — view incoming orders, mark them as shipped, communicate with buyers through in-app chat.
 - **Generate QR codes** — create QR codes for in-person payment.
 
-###  Using the Exchange Role
+### Using the Exchange Role
 
 The **Exchange** role is the key feature for onboarding **unbanked users** into the digital economy.
 
@@ -226,13 +258,7 @@ Admins (created only by Super Admins) can:
 
 ---
 
-## 
-
-
-
-
-
- Team
+## Team
 
 | Name | Student ID |
 |---|---|
