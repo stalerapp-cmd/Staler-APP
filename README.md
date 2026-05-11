@@ -251,13 +251,13 @@ The most important functionality provided for unbanked users, who are onboarded 
 
 - Looks through platform statistics, pending users, and settings.
 
-- Manages all users — edits, deletes, filters by roles.
+- Manages all users —adds regular users, merchants, and exchanges; edits, deletes,filters by roles.
 
 - Manages stores — editing, deleting.
 
 ## Super Admin
 
-Possesses all Regular Admin privileges, with the additional capability of **Creating New Admins, Super Admins, and Users**.
+Possesses all Regular Admin privileges, with the additional capability of **Creating New Admins, Super Admins **.
 
 ## Bank Administrator (LibEuFin)
 
