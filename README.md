@@ -163,99 +163,111 @@ The frontend is served as a static build by Nginx after running `npm run build` 
 
 ## How to Use the Project
 
-This section walks through the platform exactly as shown in the demo video.
+This tutorial will guide you through the usage of the platform as seen in the demo video.
 
-### Step 1 - Registering
+## Step 1: Create an Account and Verify It
 
-1. Visit the website at [http://s-taler.duckdns.org](http://s-taler.duckdns.org).
-2. Tap on **Register**.
-3. Provide your full name, email address, password (at least 8 characters long), and retype your password.
-4. Tap on **Create Account**.
+1. Go to [http://s-taler.duckdns.org](http://s-taler.duckdns.org) and click **Register**.
 
-### Step 2 – Verifying your Email Address
+2. Select whether you are a **Regular User**, **Merchant**, or **Exchange**, then fill in your full name, email address, and password (at least 8 characters long and adhering to the security standards). A `wallet_id` is automatically assigned to your account.
 
-1. Go through your email and retrieve an email from S-Taler with **6-digit code** (valid only for 15 minutes).
-2. Enter the code in the designated area.
-3. After successful verification, an online wallet is instantly set up with a balance of `0.00 PS` and your own `wallet_id`.
+3. Find the **Verification Code** sent to your email (a 6-digit code that expires after 15 minutes), then input it into the verification page.
 
-### Step 3 – Logging in
+4. Once your account is verified, your digital wallet will be instantly set up with a balance of `0.00 PS`. Now you can log in and access your Dashboard (balance, recent transactions, and fast access options: Send, Receive, Scan QR, Marketplace).
 
-Once your account gets successfully verified, tap **Login**, enter your email address and password, and access the **Dashboard** where you'll see your wallet balance, recent transactions, and other quick options such as **Send**, **Receive**, **Scan QR Code** and **Marketplace**.
+## Step 2 – Connect a Bank Account
 
-### Step 4 – Linking a Bank Account
+From the dashboard, select **Bank → Connect a Bank Account**, and the page will redirect you to the LibEuFin Bank WebUI. Create a new account there (or login to an existing account), then head back to S-Taler – that’s it, your bank account is connected.
 
-1. Navigate to the dashboard, and click on **Bank → Connect a Bank Account**.
-2. The webpage redirects you to the LibEuFin Bank WebUI.
-3. Set up a new bank account (or login into an existing account).
-4. Go back to S-Taler website.
+> **Note:** Once a bank account is linked to your profile, it **cannot** be changed without contacting support.
 
-### Step 5 — Deposit (Bank → Wallet)
+## Step 3 – Deposit/Withdraw (Bank ↔ Wallet)
 
-1. Go to **Wallet → Deposit**.
-2. Specify the sum in PS.
-3. Confirm the transaction; the sum will be transferred from your LibEuFin bank account to your S-Taler wallet and credited instantly.
+To perform any operation, a connected bank account is necessary.
 
-### Step 6 — Browsing the Marketplace and Buying Products
+- **Deposit (Bank → Wallet):** Visit **Wallet → Deposit**. Enter the required sum in PS, and press **OK** to send your money from your LibEuFin bank account to your S-Taler wallet.
 
-1. Navigate to **Marketplace** on the website (this section can be accessed **without logging in**).
-2. Look through the various merchant stores and their offerings.
-3. Select any product → **Add to Cart**.
-4. Go to cart and click **Proceed**.
-5. Pay for the product using funds from your wallet; after which, your order will be sent to the merchant.
-6. In case of a digital product, you will receive the download link instantly.
+- **Withdraw (Wallet → Bank):** Visit **Wallet → Withdraw**. Enter the sum to be withdrawn, and press **OK** to get money back to your bank account.
 
-### Step 7 – Do a QR Payment
+## Step 4 – Transfer Funds to Another Wallet
 
-**As the payer (the customer):**
-1. Tap on **Scan QR**.
-2. Grant permission to use the camera.
-3. Scan the QR code provided by the merchant.
-4. Pay.
+Click **Send Money** button at the bottom, input the wallet address of your receiver, the required sum, and add a comment if needed, and finally, press **Send**.
 
-**As the receiver (the merchant):**
-1. Go to the merchant's dashboard → **Generate QR**.
-2. Input the amount you want to charge.
-3. Present the QR code to the customer.
+## Step 5 — QR Payments
 
-### Step 8 – Transfer Money to another person's Wallet (wallet to wallet)
+Each user (excluding Admin) is issued with a unique QR code that can be used to request payments.
 
-1. Click **Send Money**.
-2. Input the ID or email address of the person.
-3. Input the amount and add a note (optional).
-4. Tap **Send**. The transfer happens immediately.
+- **When making payments:** Click on **Scan QR**, grant access to use the camera, scan the QR code, and confirm payment.
 
-### Step 9 – Withdraw Funds (Wallet → Bank)
+- **When receiving payments:** Go to merchant's dashboard → click **Generate QR**, specify amount, and show it to the buyer.
 
-1. Select **Wallet → Withdraw**.
-2. Input the amount.
-3. Click Confirm. This will withdraw the funds from your S-Taler wallet back to your LibEuFin bank account.
+## Step 6 — Explore Marketplace & Make Purchase
 
-### Using the Merchant Role
+The marketplace can be **accessed by anyone**; users can browse all stores and learn about their products without signing in, although to make purchases, a user must have an account.
 
-A user registered as a **Merchant** can:
-- **Create a store** — give it a name, logo, and description.
-- **Add products** — upload images, set prices, mark as digital or physical.
-- **Manage orders** — view incoming orders, mark them as shipped, communicate with buyers through in-app chat.
-- **Generate QR codes** — create QR codes for in-person payment.
+1. Go to **Marketplace**, browse merchants, choose a product, and **Add it to Cart**.
 
-### Using the Exchange Role
+2. Proceed to **Cart**, press **Proceed** to make payment from the wallet.
 
-The **Exchange** role is the key feature for onboarding **unbanked users** into the digital economy.
+3. If it is a digital item, then you will get the link immediately; if it is physical goods, then it is sent to the merchant.
 
-1. A customer hands you physical cash in person.
-2. You open your **Exchange Dashboard → Transfer to Customer**.
-3. You enter the customer's wallet ID and the amount.
-4. The equivalent is transferred from your exchange wallet to the customer's wallet — instantly.
+## Step 7 – Account Settings and In-App Messaging
 
-### Using the Admin Role
+From the account settings page, the user can update their profile picture, password, email address, and username. An email alert will be sent whenever there are any changes to the security-sensitive information.
 
-Admins (created only by Super Admins) can:
-- View platform statistics — total users, transactions, active stores.
-- Manage users — suspend, verify, delete.
-- Manage stores — approve, ban.
-- Configure system settings — fees, transaction limits.
-- Create additional admin accounts.
+---
 
+The user can communicate directly with any other user within the application.
+
+# User Roles
+
+## Regular User
+
+Wallet, transfers, QR payments, shopping via Marketplace, in-app chats.
+
+## Merchant
+
+Merchant has a web store and does the following things:
+
+- **Sets up the store** — name, logo, description.
+
+- **Adds, edits, deletes** products — digital or physical items, sets prices and availability (in/out of stock indicator).
+
+- **Orders management** — each order goes through **Pending → Processing → Completed → Canceled** states. The merchant gets paid only when the order is marked as **Completed**, whereas canceled orders get automatically refunded to the user.
+
+- **Creates a merchant's QR** code, which has a different payment amount.
+
+- Can look through other merchants' stores, do transfers, deposit or withdraw money, and view their store.
+
+## Exchange
+
+The most important functionality provided for unbanked users, who are onboarded with an Exchange role, which allows:
+
+- **To scan QR code of the customer** to identify him/her.
+
+- **To send wallet money** to the customer in exchange for cash transferred physically during the transaction.
+
+- **Deposits** and withdrawals between exchange wallet and bank account.
+
+## Admin (Regular)
+
+- Looks through platform statistics, pending users, and settings.
+
+- Manages all users — edits, deletes, filters by roles.
+
+- Manages stores — editing, deleting.
+
+## Super Admin
+
+Possesses all Regular Admin privileges, with the additional capability of **Creating New Admins, Super Admins, and Users**.
+
+## Bank Administrator (LibEuFin)
+
+Controls the underlying LibEuFin bank — creating new bank accounts, changing passwords, and managing all banking accounts.
+
+## Bank Exchange (LibEuFin)
+
+Deals with financial transactions between wallets and banks on the banking level — wallet transactions, interbank transactions, and complete transaction history.
 ---
 
 ## Team
