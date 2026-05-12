@@ -29,11 +29,6 @@ A secure, bilingual (Arabic & English) digital payment platform built for the Pa
 | DNS | DuckDNS |
 | Email | Gmail SMTP |
 
----
-
-## Architecture
-
-<img width="962" height="1184" alt="aws2 drawio (1)" src="https://github.com/user-attachments/assets/dc903021-ff1e-4941-9a62-cd1c8b58e612" />
 
 ---
 
