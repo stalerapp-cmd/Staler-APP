@@ -180,9 +180,9 @@ From the dashboard, select **Bank → Connect a Bank Account**, and the page wil
 
 To perform any operation, a connected bank account is necessary.
 
-- **Deposit (Bank → Wallet):** Visit **Wallet → Deposit**. Enter the required sum in PS, and press **OK** to send your money from your LibEuFin bank account to your S-Taler wallet.
+- **Withdraw (Bank → Wallet):** Visit **Wallet → Withdraw**. Enter the required sum in PS, and press **OK** to send your money from your LibEuFin bank account to your S-Taler wallet.
 
-- **Withdraw (Wallet → Bank):** Visit **Wallet → Withdraw**. Enter the sum to be withdrawn, and press **OK** to get money back to your bank account.
+- **Deposit (Wallet → Bank):** Visit **Wallet → Deposit**. Enter the sum to Deposit, and press **OK** to get money back to your bank account.
 
 ## Step 4 – Transfer Funds to Another Wallet
 
